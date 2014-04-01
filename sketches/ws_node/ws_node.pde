@@ -19,7 +19,6 @@ import org.java_websocket.handshake.ServerHandshake;
 private WebSocketClient cc;
 void setup(){
   try{
-  //new ExampleClient( new URI( "ws://localhost:3000" ), new Draft_10() ); 
   // more about drafts here: http://github.com/TooTallNate/Java-WebSocket/wiki/Drafts
   cc = new WebSocketClient( new URI( "ws://localhost:3000" ), new Draft_10() ) {
     @Override
@@ -47,42 +46,3 @@ void setup(){
   }
 }
 
-public class ExampleClient extends WebSocketClient {
-
-        public ExampleClient( URI serverUri , Draft draft ) {
-                super( serverUri, draft );
-        }
-
-        public ExampleClient( URI serverURI ) {
-                super( serverURI );
-        }
-
-        @Override
-        public void onOpen( ServerHandshake handshakedata ) {
-                System.out.println( "opened connection" );
-                this.send("test");
-        }
-        
-        @Override
-        public void send( String message ) {
-                System.out.println( "Sending " + message );
-        }
-
-        @Override
-        public void onMessage( String message ) {
-                System.out.println( message );
-        }
-
-        @Override
-        public void onClose( int code, String reason, boolean remote ) {
-                // The codecodes are documented in class org.java_websocket.framing.CloseFrame
-                System.out.println( "Connection closed by " + ( remote ? "remote peer" : "us" ) );
-        }
-
-        @Override
-        public void onError( Exception ex ) {
-                ex.printStackTrace();
-
-        }
-
-}
