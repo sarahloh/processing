@@ -86,7 +86,6 @@ void setup(){
 
 void draw() {
   canvas.beginDraw();
-  System.out.println(index);
   canvas.background(0);
   canvas.fill(110, 220, 240);
   canvas.textFont(f,16);
@@ -117,7 +116,7 @@ void initialiseArrays() {
   tweets = new ArrayList<String>();
   photos = new ArrayList<String>();
   views = new ArrayList<String>();
-  tweets.add("Tweet #thestage and see it appear!");
+  tweets.add("Tweet #thestagewit and see it appear!");
   photos.add("https://pbs.twimg.com/profile_images/444135495300165632/Se-178BE.png");
   views.add("false");
   img = loadImage(photos.get(index));
