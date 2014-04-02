@@ -28,12 +28,13 @@ ArrayList<String> views;
 PFont f; // Global font variable
 float x; // Horizontal location
 int index = 0;
+PImage img;
 
 private WebSocketClient cc;
 void setup(){
   
-  size(500,100, P3D);
-  canvas = createGraphics(500, 100, P3D);
+  size(500,400, P3D);
+  canvas = createGraphics(500, 400, P3D);
   f = createFont( "Arial" ,16,true);
   x = width;
   // Create syhpon server to send frames out.
@@ -91,6 +92,7 @@ void draw() {
   canvas.textAlign (LEFT);
   // A specific String from the array is displayed according to the value of the "index" variable.
   canvas.text(tweets.get(index),x,55); 
+  canvas.image(img, 0, 150);
   // Decrement x
   x = x - 2;
   // If x is less than the negative width, then it is off the screen
@@ -100,6 +102,8 @@ void draw() {
     x = width;
     // index is incremented when the current String has left the screen in order to display a new String.
     index = (index + 1) % tweets.size(); 
+    img = loadImage(photos.get(index));
+    img.resize(256, 256);
   }
   
   canvas.endDraw();
@@ -114,4 +118,6 @@ void initialiseArrays() {
   tweets.add("#wit #thestage #projectionmapping #sari");
   photos.add("https://pbs.twimg.com/profile_images/444135495300165632/Se-178BE.png");
   views.add("false");
+  img = loadImage(photos.get(index));
+  img.resize(256, 256);
 }
