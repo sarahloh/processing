@@ -7,7 +7,8 @@ SyphonServer server;
 PFont f1;
 PFont f2;
 PFont f3;
-String message = "click mouse to shake it up";
+String message = "press any key to shake it up - press any key to shake it up - press any key to shake it up - press any key to shake it up - press any key to shake it up - press any key to shake it up ";
+//String message = "press any key to shake it up";
 float x; // Horizontal location
 // An array of Letter objects
 Letter[] letters;
@@ -52,6 +53,7 @@ void draw() {
     // Increase the subtracted number to speed up scrolling
     float newX = (oldX - 2);
     letters[i].setX(newX);
+    System.out.println(newX);
     
     // If the mouse is pressed the letters shake
     // If not, they return to their original location

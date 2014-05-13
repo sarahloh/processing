@@ -34,5 +34,12 @@ void draw() {
 
 void keyPressed()
 {
-  speed = random(10);
+  if(key == '1') {
+    // Rotate right
+    speed = random(10);
+  }
+  if(key == '2') {
+    // Rotate left
+    speed = -random(10);
+  }
 }
