@@ -6,6 +6,8 @@
 import codeanticode.syphon.*;
 PGraphics canvas;
 SyphonServer server;
+float vel1 = 1;
+float vel2 = 0;
 
 ParticleSystem ps;
 
@@ -38,7 +40,7 @@ class Particle {
 
   Particle(PVector l) {
     acceleration = new PVector(0,0.05);
-    velocity = new PVector(random(-1,1),random(-2,0));
+    velocity = new PVector(vel1,vel2);
     location = l.get();
     lifespan = 255.0;
   }
@@ -88,6 +90,7 @@ class ParticleSystem {
   }
 
   void addParticle() {
+    // Replace origin with random location
     origin = new PVector(random(width),random(height)).get();
     particles.add(new Particle(origin));
   }
@@ -101,5 +104,17 @@ class ParticleSystem {
         particles.remove(i);
       }
     }
+  }
+}
+
+void keyPressed()
+{
+  if(key == '1') {
+    // Alter particle x velocity
+    vel1 = random(-5,5);
+  }
+  if(key == '2') {
+    // Alter perticle y velocity
+    vel2 = random(-10,0);
   }
 }

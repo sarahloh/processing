@@ -17,11 +17,11 @@ PFont[] fonts = {f1, f2, f3};
 
 
 void setup() {
-  size(260, 200, P3D);
-  canvas = createGraphics(260, 200, P3D);
+  size(400, 200, P3D);
+  canvas = createGraphics(400, 200, P3D);
   // Create syhpon server to send frames out.
   server = new SyphonServer(this, "Processing Syphon");
-  // Load the font
+  // Create the fonts
   fonts[0] = createFont("Ubuntu",20,true);
   fonts[1] = createFont("Ariel",20,true);
   fonts[2] = createFont("Franklin",20,true);
@@ -37,7 +37,6 @@ void setup() {
   for (int i = 0; i < message.length(); i++) {
     letters[i] = new Letter(x,100,message.charAt(i), random(20,30)); 
     x += textWidth(message.charAt(i)) + 3;
-    System.out.println("setting = " + i);
   }
 }
 
@@ -47,14 +46,11 @@ void draw() {
   for (int i = 0; i < letters.length; i++) {
     // Display all letters
     letters[i].display();
-    System.out.println("display = " + i);
     // Move the letters so they scroll across the screen
     float oldX = letters[i].getX();
     // Increase the subtracted number to speed up scrolling
     float newX = (oldX - 2);
     letters[i].setX(newX);
-    System.out.println(newX);
-    
     // If the mouse is pressed the letters shake
     // If not, they return to their original location
     if (keyPressed) {

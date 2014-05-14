@@ -84,7 +84,7 @@ void draw() {
   // A specific String from the array is displayed according to the value of the "index" variable.
   canvas.text(tweets.get(index),x,55); 
   canvas.image(img, 0, 150);
-  // Decrement x
+  // Change the subtracted value to alter the speed of the scroll
   x = x - 1;
   // If x is less than the negative width, then it is off the screen
   // textWidth() is used to calculate the width of the current String.
